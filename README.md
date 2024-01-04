@@ -56,7 +56,7 @@ Le .a de la librairie se trouve après compilation dans le dossier lib (dans les
 ## Personnalisation
 
 Le projet est conçu pour être facilement modifiable.  
-Il est possible d'ajouter de nouveaux algorithmes de compression dans le dossier src/algorithms, il suffit ensuite simplement de preciser ses imports (voir xor.c pour exemple), et de modifier dans src/packer.c le switch qui check l'algortihme utilisé.  
+Il est possible d'ajouter de nouveaux algorithmes de compression dans le dossier src/algorithms, il suffit ensuite simplement de preciser ses imports (voir xor.c pour exemple), et de modifier dans src/packer.c rajouter le check pour l'algortihme utilisé.  
 Il est aussi possible de modifier le bootloader, ou de changer le chargeur d'exécutable qui est actuelement très minimaliste.  
 Cependant, il est déconseillé d'utiliser la libc dans l'algorithme de compression, le bootloader ou le chargeur, car elle ne sera pas initialisée.
 

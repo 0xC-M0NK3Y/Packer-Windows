@@ -1,7 +1,7 @@
 # Projet Packer Windows x86/x86_64
 ## Description
 
-Le projet Packer Windows x86/x86_64 est un utilitaire et librairie de packing simple et modulable pour les exécutables Windows.  
+Le projet Packer Windows x86/x86_64 est un utilitaire et bibliothèque de packing simple et modulable pour les exécutables Windows.  
 Il permet de compresser un fichier exécutable en utilisant différents algorithmes de compression.  
 L'objectif principal est de créer un exécutable minimal, comprenant uniquement les éléments nécessaires pour l'exécution.  
 

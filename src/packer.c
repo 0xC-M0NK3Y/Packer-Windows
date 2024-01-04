@@ -73,6 +73,7 @@ int packer_pack_executable(char *executable, char *algorithm, char *out) {
     size_t          compressed_exe_size;
     uint8_t         *exe;
     size_t          exe_size;
+    int             level;
 
     memset(&packed_exe, 0, sizeof(packed_exe));
 
@@ -104,7 +105,8 @@ int packer_pack_executable(char *executable, char *algorithm, char *out) {
     if (strcmp(algorithm, "xor") == 0) {
         uint8_t *tmp = NULL;
 
-        tmp                                        = xor_compressor(exe, exe_size, &compressed_exe_size, 0x26262626);
+        level                                      = 0x26262626;
+        tmp                                        = xor_compressor(exe, exe_size, &compressed_exe_size, level);
         packed_exe.text_section.decompressor       = (void *)&xor_decompressor;
         packed_exe.text_section.decompressor_end   = (void *)&xor_decompressor_end;
         packed_exe.idata_section.decompressor_import = &xor_imports;
@@ -132,7 +134,7 @@ int packer_pack_executable(char *executable, char *algorithm, char *out) {
     if (create_section_idata(&packed_exe) < 0)
         return free_packed_exe(&packed_exe), PACKER_ERROR_CREATING_IDATA_SECTION;
     // fix code
-    if (fix_section_text(&packed_exe, 0x26262626) < 0)
+    if (fix_section_text(&packed_exe, level) < 0)
         return free_packed_exe(&packed_exe), PACKER_ERROR_FIXING_TEXT_SECTION;
     // create headers
     create_headers(&packed_exe);

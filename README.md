@@ -41,9 +41,9 @@ Il contient trois sections :
   
 Le code de l'exécutable dans .text inclut un bootloader qui appelle la fonction de décompression, décompresse l'exécutable original depuis la section .rdata, puis appel le chargeur d'executable qui l'execute.  
 
-## Librairie
+## Bibliothèque
 
-Le projet propose également une librairie (32 ou 64 bits) avec deux fonctions définies dans le fichier d'en-tête include/packer.h :
+Le projet propose également une bibliothèque (32 ou 64 bits) avec deux fonctions définies dans le fichier d'en-tête include/packer.h :
 ```c
     int packer_pack_executable(char *executable, char *algorithm, char *out);
     // Cette fonction prend le chemin de l'exécutable à packer, l'algorithme de compression à utiliser, et le chemin de sortie de l'exécutable packé.
@@ -52,7 +52,7 @@ Le projet propose également une librairie (32 ou 64 bits) avec deux fonctions d
     char *packer_get_error(int error);
     // Cette fonction renvoie une chaîne de caractères décrivant un code d'erreur.
 ```
-Le .a de la librairie se trouve après compilation dans le dossier lib (dans les sous dossiers x86_64 pour la version 64 et x86 pour la version 32).  
+Le .a de la bibliothèque se trouve après compilation dans le dossier lib (dans les sous dossiers x86_64 pour la version 64 et x86 pour la version 32).  
 ## Personnalisation
 
 Le projet est conçu pour être facilement modifiable.  
